@@ -60,6 +60,7 @@ function checkAnswer(choice) {
         lost = true;
         correctPattern = [];
         $("#level-title").text("Game Over. Press Enter to Restart");
+        new Audio("sounds/wrong.mp3").play();
 
         $("body").addClass("game-over");
         setTimeout(function() { $("body").removeClass("game-over"); }, 100);
