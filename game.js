@@ -5,19 +5,28 @@ var level = 0;
 var lost = false;
 var correctPattern = [];
 var userTurns = 0;
+
 $(".btn").click(clickHandler);
+// start with 'Enter' key
 $(document).on("keydown", function(event) {
     if (event.key === "Enter") {
-        if (level === 0) { 
-            setTimeout(nextSequence, 500);
-        }
-        else if (lost === true) {
-            level = 0;
-            lost = false;
-            nextSequence();
-        }
+        start();
+    }});
+// start with 'START' button press
+$(".start-btn").on("click", start);
+
+function start(event) {
+    if (level === 0) { 
+        $(".start-btn").toggle();
+        setTimeout(nextSequence, 500);
     }
-});
+    else if (lost === true) {
+        level = 0;
+        lost = false;
+        $(".start-btn").toggle();
+        nextSequence();
+    }
+}
 
 function nextSequence() {
     // update level to title
@@ -61,6 +70,10 @@ function checkAnswer(choice) {
         correctPattern = [];
         $("#level-title").text("Game Over. Press Enter to Restart");
         new Audio("sounds/wrong.mp3").play();
+
+        // bring back start button
+        $(".start-btn").toggle();
+        $(".start-btn").text("RESTART");
 
         $("body").addClass("game-over");
         setTimeout(function() { $("body").removeClass("game-over"); }, 100);
