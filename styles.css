@@ -6,6 +6,7 @@ body {
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 2rem;
+  line-height: 3rem;
   margin:  5%;
   margin-bottom: 3%;
   color: #FEF2BF;
@@ -28,6 +29,24 @@ body {
 .btn:hover {
   transform: scale(1.05);
   transition: 0.2s;
+}
+
+.start-btn {
+  background-color: #3988de;
+  font-size: 4rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+  padding: 25px 50px;
+  margin-top: 100px;
+  border-radius: 50px;
+  border: none;
+}
+.start-btn:hover {
+  transform: scale(1.05);
+  background-color: #307ac9;
+}
+.start-btn:active {
+  background-color: #2a71be;
 }
 
 .game-over {
